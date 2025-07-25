@@ -132,7 +132,7 @@ export default function CreateTaskForm(props: {
   });
 
   const taskStatusList = Object.values(TaskStatusEnum);
-  const taskPriorityList = Object.values(TaskPriorityEnum); // ["LOW", "MEDIUM", "HIGH", "URGENT"]
+  const taskPriorityList = Object.values(TaskPriorityEnum); // ["LOW", "MEDIUM", "HIGH"]
 
   const statusOptions = transformOptions(taskStatusList);
   const priorityOptions = transformOptions(taskPriorityList);
@@ -145,7 +145,9 @@ export default function CreateTaskForm(props: {
       projectId: projectId,
       data: {
         ...taskValues,
-        ...(taskValues.dueDate ? { dueDate: taskValues.dueDate.toISOString() } : {}),
+        description: taskValues.description || "",
+        assignedTo: taskValues.assignedTo || "",
+        dueDate: taskValues.dueDate ? (typeof taskValues.dueDate === "string" ? taskValues.dueDate : taskValues.dueDate.toISOString()) : "",
       },
     };
 
