@@ -49,7 +49,7 @@ Create a `.env` file in the `backend` directory with the following variables:
 NODE_ENV=development
 PORT=5000
 BASE_PATH=/api
-MONGO_URI=mongodb://localhost:27017/taskorbit
+MONGO_URI=mongodb:"your_mongo_url"
 SESSION_SECRET=your_session_secret
 SESSION_EXPIRES_IN=86400000
 GOOGLE_CLIENT_ID=your_google_client_id
